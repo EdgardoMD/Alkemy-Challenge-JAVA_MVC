@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+
+<head>
+<title>STUDENT Home</title>
+</head>
+<body>
+	<div layout:fragment="content">
+	        <p>Welcome Student(<span sec:authentication="principal.username">Student</span>)</p>
+	        <p sec:authorize="isAuthenticated()"></p>
+    	
+    	<div class="list-group">
+			<a href="#" class="list-group-item list-group-item-action active">Home</a>
+			<a href="/student/courses"
+				class="list-group-item list-group-item-action">Courses
+				Manager</a> 
+			<a href="#" class="list-group-item list-group-item-action">not available</a> 
+			<a th:href="@{/logout}" class="list-group-item list-group-item-action">Logout</a>
+		</div>
+		
+	</div>
+    </body>
+
+</body>
+
+</html>

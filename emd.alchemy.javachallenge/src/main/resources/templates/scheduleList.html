@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<meta charset="ISO-8859-1">
+<title>Professors List</title>
+</head>
+<body>
+<div layout:fragment="content">
+
+<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Schedule ID</th>
+					<th>Course Name</th>
+					<th>Time</th>
+					<th>Day</th>
+					<th>Course</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="schedule: ${schedulelist}">
+					<td th:text="${schedule.scheduleId}"></td>
+					<td th:text="${schedule.courseName}"></td>
+					<td th:text="${schedule.time}"></td>
+					<td th:text="${schedule.day}"></td>
+					<td th:text="${schedule.course.courseName}"></td>
+					<td>
+					<a class="btn btn-primary btn-sm"
+								th:href="@{/admin/schedules/edit/} + ${schedule.scheduleId}" th:text="'edit'"></a></td>
+					
+					<td><a class="btn btn-danger btn-sm"
+								th:href="@{/admin/schedules/delete/} + ${schedule.scheduleId}" th:text="'delete'"
+								onclick="return confirm('are you sure?');"></a></td>
+					
+				</tr>
+
+			</tbody>
+		</table>
+		
+		<a href="/admin/schedules/new" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">New Schedule</a>
+		<a href="/admin/home" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Back</a>
+
+</div>
+
+</body>
+</html>

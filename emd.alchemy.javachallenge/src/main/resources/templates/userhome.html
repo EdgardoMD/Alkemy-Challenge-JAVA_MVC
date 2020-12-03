@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+
+<head>
+<title>User Home</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<p>
+			Welcome <span sec:authentication="principal.username">User</span>
+		</p>
+		<p>
+			<a th:href="@{/logout}">Logout</a>
+		</p>
+
+		<div sec:authorize="hasRole('ROLE_ADMIN')">
+			<h3>You will see this only if you are ADMIN</h3>
+			<h4>please press the next button if you want to enter the features enabled for you:</h4>
+			<a th:href="@{/admin/home}"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true">ADMIN HOME</a>
+		</div>
+		
+		<div sec:authorize="hasRole('ROLE_STUDENT')">
+			<h2>You will see this only if you are STUDENT</h2>
+			<h4>please press the next button if you want to enter the features enabled for you:</h4>
+			<a th:href="@{/student/home}"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true">STUDENT HOME</a>
+		</div>
+	<!-- 	<h3>Form with CSRF Token</h3>
+		<form th:action="@{/messages}" method="post">
+			<textarea name="content" cols="50" rows="5"></textarea>
+			<br>
+			<input type="submit" value="Submit" />
+		</form>
+
+		<div>
+		<br>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Messages
+				</div>
+
+				<p th:each="msg: ${msgs}" th:text="${msg.content}"></p>
+			</div>
+
+		</div> -->
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+<div class="card-body">
+                <form th:action="@{/admin/professors/save}" th:object="${professor}" method="post">
+                  
+                   <!--  <input type="hidden" th:field="*{professorId}" /> -->
+                   
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Professor Id</label>
+                        <div class="col-sm-6">
+                            
+                            <input type="number" th:field="*{professorId}" readonly = "readonly">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">First Name</label>
+                        <div class="col-sm-6">
+                           
+                            <input type="text" th:field="*{firstName}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Last Name</label>
+                        <div class="col-sm-6">
+                           
+                            <input type="text" th:field="*{lastName}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">DNI</label>
+                        <div class="col-sm-6">
+                           
+                            <input type="text" th:field="*{dni}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Enabled</label>
+                        <div class="col-sm-6">
+                           
+                            <input type="number" th:field="*{enabled}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input type="submit" value="save" class="btn btn-outline-primary">
+                            <a th:href="@{/admin/courses}" class="btn btn-outline-danger">Back</a>
+                        </div>
+                    </div>
+                </form>
+</div>
+</div>
+
+</body>
+</html>

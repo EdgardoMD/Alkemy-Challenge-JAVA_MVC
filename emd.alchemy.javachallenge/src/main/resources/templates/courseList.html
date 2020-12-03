@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<meta charset="ISO-8859-1">
+<title>Courses</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<h3>Here you can find a complete list of courses</h3>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Course ID</th>
+					<th>Course Name</th>
+					<th>Max. Quantity</th>
+					<th>Professor ID</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="course: ${courselist}">
+					<td th:text="${course.courseId}"></td>
+					<td th:text="${course.courseName}"></td>
+					<td th:text="${course.maxQuantity}"></td>
+					<td th:text="${course.professor.professorId}"></td>
+					<td>
+					<a class="btn btn-primary btn-sm"
+								th:href="@{/admin/courses/edit/} + ${course.courseId}" th:text="'edit'"></a></td>
+					
+					<td><a class="btn btn-danger btn-sm"
+								th:href="@{/admin/courses/delete/} + ${course.courseId}" th:text="'delete'"
+								onclick="return confirm('are you sure to delete?');"></a></td>
+				</tr>
+
+			</tbody>
+		</table>
+		
+		<a href="/admin/courses/new" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">New Course</a>
+		<a href="/admin/home" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Back</a>
+	</div>
+</body>
+</html>
