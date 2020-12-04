@@ -46,6 +46,18 @@ public class ScheduleServiceImpl implements IScheduleService{
 		repo.deleteById(scheduleId);
 		return true;
 	}
+
+	@Override
+	public List<Schedule> findByCourseId(Integer courseId) {
+		
+		return repo.findByCourseId(courseId);
+	}
+
+	@Override
+	public List<Schedule> listAllOrderByCourseIdAsc() {
+		
+		return repo.listAllOrderByCourseIdAsc();
+	}
 	
 
 }

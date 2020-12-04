@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import emd.alchemy.javachallenge.model.Course;
 import emd.alchemy.javachallenge.model.Professor;
@@ -63,7 +64,13 @@ public class AdminController {
 	 
 	 @GetMapping("/admin/professors/delete/{professorId}")
 	 public String deleteProfessor (@PathVariable(value="professorId") Integer professorId) {
-		 professorService.delete(professorId);
+		 Professor professor = professorService.findById(professorId);
+		 if(professor.isEnabled() == true) {
+			 System.out.println("Professor cannot be delete");
+			 return "redirect:/admin/professors";
+		 }
+		 
+				 professorService.delete(professorId);
 		 return "redirect:/admin/professors";
 	 }
 	 
@@ -105,7 +112,7 @@ public class AdminController {
 	 
 	 @GetMapping("/admin/schedules") 
 	 public String scheduleList(Model model) {
-	 List<Schedule> schedulelist = scheduleService.listAll();
+	 List<Schedule> schedulelist = scheduleService.listAllOrderByCourseIdAsc();
 	 System.out.println(schedulelist);
 	 model.addAttribute("schedulelist", schedulelist); 
 	 return "scheduleList"; 

@@ -11,63 +11,70 @@
 <body>
 <div layout:fragment="content">
 
-<div class="card-body">
-                <form th:action="@{/admin/schedules/save}" th:object="${schedule}" method="post">
-                   
-                    <div class="form-group">
-                        <label class="col-sm-2 col-form-label">Schedule Id</label>
-                        <div class="col-sm-4">
-                            
-                            <input type="number" th:field="*{scheduleId}">
-                        </div>
-                    </div>
-                    
-              
-                     
-                    <div class="form-group">
-    <label for="inputTime">Time</label>
-    <select id="inputTime" class="form-control">
-      <option>8:00 to 9:30</option>
-      <option>9:45 to 11:15</option>
-      <option>11:30 to 13:00</option>
-      <option>14:00 to 15:30</option>
-      <option>15:45 to 17:15</option>
-      <option>17:30 to 19:00</option>
-    </select>
-    </div>
-    
-    
-                      <div class="form-group col-md-2">
-    <label for="inputDay">Day</label>
-    <select id="inputDay" class="form-control">
-      <option>Monday</option>
-      <option>Tuesday</option>
-      <option>Wednesday</option>
-      <option>Thursday</option>
-      <option>Friday</option>
-      <option>Saturday</option>
-    </select>
-    </div>
-   
-  
-                    <div class="form-group">
-                        <label class="col-sm-2 col-form-label">Course ID</label>
-                        <div class="col-sm-6">
-                           
-                            <input type="text" th:field="*{course.courseId}">
-                        </div>
-                    </div>
-                   
-      
-                    <div class="form-group">
-                        <div class="col-sm-6">
-                            <input type="submit" value="save" class="btn btn-outline-primary">
-                            <a th:href="@{/admin/home}" class="btn btn-outline-danger">Back</a>
-                        </div>
-                    </div>
-                </form>
-</div>
-</div>
+		<div class="card-body">
+			<form th:action="@{/admin/schedules/save}" th:object="${schedule}"
+				method="post">
+
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label">Schedule Id</label>
+					<div class="col-sm-6">
+
+						<input type="number" th:field="*{scheduleId}">
+					</div>
+				</div>
+
+				<div class="form-group row">
+
+					<label class="col-sm-2 col-form-label">Time</label>
+					<div class="col-sm-2">
+						<select th:field="*{time}" class="form-control">
+							<option value="8:00 to 9:30">8:00 to 9:30</option>
+							<option value="9:45 to 11:15">9:45 to 11:15</option>
+							<option value="11:30 to 13:00">11:30 to 13:00</option>
+							<option value="14:00 to 15:30">14:00 to 15:30</option>
+							<option value="15:45 to 17:15">15:45 to 17:15</option>
+							<option value="17:30 to 19:00">17:30 to 19:00</option>
+						</select>
+					</div>
+				</div>
+
+
+				<div class="form-group row">
+
+					<label class="col-sm-2 col-form-label">Day</label>
+					<div class="col-sm-2">
+						<select id="inputDay" th:field="*{day}" class="form-control">
+							<option value="Monday">Monday</option>
+							<option value="Tuesday">Tuesday</option>
+							<option value="Wednesday">Wednesday</option>
+							<option value="Thursday">Thursday</option>
+							<option value="Friday">Friday</option>
+							<option value="Saturday">Saturday</option>
+						</select>
+					</div>
+				</div>
+
+
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label">Course ID</label>
+					<div class="col-sm-6">
+
+						<input type="text" th:field="*{course.courseId}">
+					</div>
+				</div>
+
+
+				<div class="form-group row">
+					<div class="col-sm-6">
+						<input type="submit" value="Save" class="btn btn-primary btn-lg"
+							role="button" aria-pressed="true"> <a
+							th:href="@{/admin/schedules}" class="btn btn-primary btn-lg"
+							role="button" aria-pressed="true">Back</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 
 </body>
 </html>

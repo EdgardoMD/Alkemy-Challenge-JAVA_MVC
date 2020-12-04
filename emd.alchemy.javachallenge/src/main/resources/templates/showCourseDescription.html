@@ -14,7 +14,23 @@
   <div class="card-body">
     <h5 class="card-title">Course Description:</h5>
     <p class="card-text" th:text="${course}"></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    
+    <table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Day</th>
+					<th>Time</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="schedule: ${schedules}">
+					<td th:text="${schedule.day}"></td>
+					<td th:text="${schedule.time}"></td>	
+				</tr>
+
+			</tbody>
+		</table>
+    <a href="/student/courses" class="btn btn-primary">Back</a>
   </div>
 </div>
 </div>

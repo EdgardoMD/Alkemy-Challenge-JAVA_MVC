@@ -15,7 +15,6 @@
 			<thead>
 				<tr>
 					<th>Schedule ID</th>
-					<th>Course Name</th>
 					<th>Time</th>
 					<th>Day</th>
 					<th>Course</th>
@@ -24,7 +23,6 @@
 			<tbody>
 				<tr th:each="schedule: ${schedulelist}">
 					<td th:text="${schedule.scheduleId}"></td>
-					<td th:text="${schedule.courseName}"></td>
 					<td th:text="${schedule.time}"></td>
 					<td th:text="${schedule.day}"></td>
 					<td th:text="${schedule.course.courseName}"></td>

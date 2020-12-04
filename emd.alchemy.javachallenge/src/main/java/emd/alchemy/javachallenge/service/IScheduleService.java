@@ -11,5 +11,8 @@ public interface IScheduleService {
 	List<Schedule> listAll ();
 	Schedule findById (Integer scheduleId);
 	boolean delete (Integer scheduleId);
+	
+	public List<Schedule> findByCourseId(Integer courseId);
+	public List<Schedule> listAllOrderByCourseIdAsc();
 
 }

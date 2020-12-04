@@ -1,8 +1,14 @@
 package emd.alchemy.javachallenge.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,7 +30,6 @@ public class Professor {
 	@Column(name = "enabled", nullable = false)
 	private boolean enabled;
 
-	
 	public Professor() {
 	}
 
@@ -67,7 +72,6 @@ public class Professor {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	
-	
 
+	
 }

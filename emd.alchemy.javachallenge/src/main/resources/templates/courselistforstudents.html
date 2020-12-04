@@ -38,7 +38,7 @@
 					<a class="btn btn-primary btn-sm"
 								th:href="@{/student/courses} + ${course.courseId}" th:text="'Join Up'"></a></td>
 					
-					<td></td>
+					<td th:text="${course.maxQuantity}"></td>
 				</tr>
 
 			</tbody>
