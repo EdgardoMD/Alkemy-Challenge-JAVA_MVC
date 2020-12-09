@@ -24,7 +24,7 @@
 		</div>
 		
 		<div sec:authorize="hasRole('ROLE_STUDENT')">
-			<h2>You will see this only if you are STUDENT</h2>
+			<h3>You will see this only if you are STUDENT</h3>
 			<h4>please press the next button if you want to enter the features enabled for you:</h4>
 			<a th:href="@{/student/home}"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true">STUDENT HOME</a>
 		</div>

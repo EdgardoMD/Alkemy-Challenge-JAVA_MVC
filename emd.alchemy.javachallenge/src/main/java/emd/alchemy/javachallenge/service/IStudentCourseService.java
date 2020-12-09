@@ -8,6 +8,12 @@ import emd.alchemy.javachallenge.model.StudentCourse;
 
 public interface IStudentCourseService {
 	
-	List<StudentCourse> listCoursesPerStudent(@Param("studentId") Integer studentId);
+	Integer register(@Param("studentId") Integer studentId, @Param("courseId") Integer courseId);
+	
+	List<StudentCourse> findByStudentId(@Param("studentId") Integer studentId);
+	
+	StudentCourse findOnebyCourseId(@Param("courseId") Integer courseId);
+	
+	StudentCourse save(StudentCourse studentCourse);
 
 }

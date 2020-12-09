@@ -65,10 +65,11 @@ public class AdminController {
 	 @GetMapping("/admin/professors/delete/{professorId}")
 	 public String deleteProfessor (@PathVariable(value="professorId") Integer professorId) {
 		 Professor professor = professorService.findById(professorId);
-		 if(professor.isEnabled() == true) {
-			 System.out.println("Professor cannot be delete");
-			 return "redirect:/admin/professors";
-		 }
+		 //antes de implementar la exception genérica
+		 //if(professor.isEnabled() == true) {
+			// System.out.println("Professor cannot be delete");
+			// return "redirect:/admin/professors";
+		 //}
 		 
 				 professorService.delete(professorId);
 		 return "redirect:/admin/professors";

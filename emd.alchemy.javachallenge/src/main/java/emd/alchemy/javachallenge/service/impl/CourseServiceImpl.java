@@ -53,4 +53,15 @@ public class CourseServiceImpl implements ICourseService{
 		return repo.listAllCoursesOrderAsc();
 	}
 
+	@Override
+	public Course discountVacancies(Integer courseId) {
+		
+		Course course = new Course();
+		course = repo.getOne(courseId);
+		Integer maxQuantity = course.getMaxQuantity();
+		course.setMaxQuantity(maxQuantity-1);
+		return repo.save(course);
+		
+	}
+
 }

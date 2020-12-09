@@ -48,9 +48,9 @@ public class ScheduleServiceImpl implements IScheduleService{
 	}
 
 	@Override
-	public List<Schedule> findByCourseId(Integer courseId) {
+	public List<Schedule> findByCourse(Integer courseId) {
 		
-		return repo.findByCourseId(courseId);
+		return repo.findByCourse(courseId);
 	}
 
 	@Override

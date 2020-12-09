@@ -1,5 +1,6 @@
 package emd.alchemy.javachallenge.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -29,6 +30,7 @@ public class Professor {
 	
 	@Column(name = "enabled", nullable = false)
 	private boolean enabled;
+	
 
 	public Professor() {
 	}
@@ -73,5 +75,9 @@ public class Professor {
 		this.enabled = enabled;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Professor [professorId=" + professorId + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", dni=" + dni + ", enabled=" + enabled + "]";
+	}		
 }

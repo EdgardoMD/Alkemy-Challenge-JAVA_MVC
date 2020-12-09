@@ -22,6 +22,9 @@ public class Student {
 	@Column(name = "dni", nullable = false)
 	private String dni;
 
+	public Student() {
+	}
+
 
 	public Integer getStudentId() {
 		return studentId;
@@ -60,6 +63,12 @@ public class Student {
 
 	public void setDni(String dni) {
 		this.dni = dni;
+	}
+	
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName + ", dni="
+				+ dni + "]";
 	}
 
 

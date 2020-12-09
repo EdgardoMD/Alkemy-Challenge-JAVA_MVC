@@ -17,9 +17,27 @@ public class StudentCourseServiceImpl implements IStudentCourseService{
 	private IStudentCourseRepo repo;
 	
 	@Override
-	public List<StudentCourse> listCoursesPerStudent(Integer studentId) {
+	public List<StudentCourse> findByStudentId(Integer studentId) {
 		
-		return repo.listCoursesPerStudent(studentId);
+		return repo.findByStudentId(studentId);
+	}
+
+	@Override
+	public Integer register(Integer studentId, Integer courseId) {
+		
+		return repo.register(studentId, courseId);
+	}
+
+	@Override
+	public StudentCourse save(StudentCourse studentCourse) {
+		
+		return repo.save(studentCourse);
+	}
+
+	@Override
+	public StudentCourse findOnebyCourseId(Integer courseId) {
+		
+		return repo.findOnebyCourseId(courseId);
 	}
 
 }

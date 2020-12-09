@@ -46,4 +46,10 @@ public class StudentServiceImpl implements IStudentService {
 		return true;
 	}
 
+	@Override
+	public Student findByDni(String dni) {  // En proceso de prueba, evaluar su rendimiento
+		
+		return repo.findByDni(dni);
+	}
+
 }

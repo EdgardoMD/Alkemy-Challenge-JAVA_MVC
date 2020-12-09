@@ -11,5 +11,7 @@ public interface IStudentService {
 	List<Student> listAll ();
 	Student findById (Integer studentId);
 	boolean delete (Integer studentId);
+	
+	Student findByDni(String dni);
 
 }

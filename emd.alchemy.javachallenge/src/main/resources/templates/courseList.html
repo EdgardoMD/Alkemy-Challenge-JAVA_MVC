@@ -28,12 +28,12 @@
 					<td th:text="${course.courseId}"></td>
 					<td th:text="${course.courseName}"></td>
 					<td th:text="${course.maxQuantity}"></td>
-					<td th:text="${course.professor.professorId}"></td>
+					<td th:text="${course.professor.lastName}"></td>
 					<td>
 					<a class="btn btn-primary btn-sm"
 								th:href="@{/admin/courses/edit/} + ${course.courseId}" th:text="'edit'"></a></td>
 					
-					<td><a class="btn btn-danger btn-sm"
+				    <td><a class="btn btn-danger btn-sm"
 								th:href="@{/admin/courses/delete/} + ${course.courseId}" th:text="'delete'"
 								onclick="return confirm('are you sure to delete?');"></a></td>
 				</tr>

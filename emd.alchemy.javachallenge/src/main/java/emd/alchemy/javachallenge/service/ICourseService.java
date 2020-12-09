@@ -14,5 +14,7 @@ public interface ICourseService {
 	boolean delete (Integer courseId);
 	
 	List<Course> listAllCoursesOrderAsc();
+	
+	Course discountVacancies(Integer courseId);
 
 }

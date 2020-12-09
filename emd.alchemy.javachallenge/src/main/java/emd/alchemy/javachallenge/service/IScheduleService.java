@@ -12,7 +12,7 @@ public interface IScheduleService {
 	Schedule findById (Integer scheduleId);
 	boolean delete (Integer scheduleId);
 	
-	public List<Schedule> findByCourseId(Integer courseId);
+	public List<Schedule> findByCourse(Integer courseId);
 	public List<Schedule> listAllOrderByCourseIdAsc();
 
 }

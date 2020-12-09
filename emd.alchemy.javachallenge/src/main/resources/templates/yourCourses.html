@@ -12,20 +12,20 @@
 <div layout:fragment="content">
 <div class="card" style="width: 40rem;">
   <div class="card-body">
-    <h5 class="card-title">Course Description:</h5>
-    <p class="card-text" th:text="${course}"></p>
-    
+ 
+    <h5 class="card-title">At the moment, you are join up to:</h5>
+      
     <table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Day</th>
-					<th>Time</th>
+					<th>Course Name</th>
+					
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="schedule: ${schedules}">
-					<td th:text="${schedule.day}"></td>
-					<td th:text="${schedule.time}"></td>	
+				<tr th:each="studentcourse: ${courses}">
+					<td th:text="${studentcourse.course.courseName}"></td>
+						
 				</tr>
 
 			</tbody>
@@ -33,6 +33,7 @@
     <a href="/student/courses" class="btn btn-primary">Back</a>
   </div>
 </div>
+
 </div>
 </body>
 </html>

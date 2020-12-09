@@ -15,10 +15,9 @@
     	
     	<div class="list-group">
 			<a href="#" class="list-group-item list-group-item-action active">Home</a>
-			<a href="/student/courses"
-				class="list-group-item list-group-item-action">Courses
-				Manager</a> 
-			<a href="#" class="list-group-item list-group-item-action">not available</a> 
+			<a href="/student/courses" class="list-group-item list-group-item-action">Courses Manager</a> 
+			<a th:href="@{/student/courses/yourcourses/} + ${#authentication.name}" class="list-group-item list-group-item-action">Check the courses you are enrolled in </a>
+			 
 			<a th:href="@{/logout}" class="list-group-item list-group-item-action">Logout</a>
 		</div>
 		

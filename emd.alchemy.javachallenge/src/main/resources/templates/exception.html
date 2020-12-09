@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="layout">
+<head>
+<meta charset="ISO-8859-1">
+<title>Exception</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+<h3>sorry, the action selected can't be processed.Please contact to Developer. </h3>
+<a href="/admin/courses" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Back</a>
+</div>
+
+<div sec:authorize="hasRole('ROLE_STUDENT')">
+<h3>Student User:</h3>
+<h3>sorry, the action selected can't be processed.Please contact to Developer. </h3>
+<a href="/student/courses" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Back</a>
+</div>
+
+</div>
+
+</body>
+</html>

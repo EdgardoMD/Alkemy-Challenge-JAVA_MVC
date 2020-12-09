@@ -15,6 +15,16 @@ public class StudentCourse {
 	
 	@Id
 	private Course course;
+	
+	
+
+	public StudentCourse() {
+	}
+	
+	public StudentCourse(Student student, Course course) {
+		this.student = student;
+		this.course = course;
+	}
 
 	public Student getStudent() {
 		return student;
@@ -30,5 +40,10 @@ public class StudentCourse {
 
 	public void setCourse(Course course) {
 		this.course = course;
+	}
+
+	@Override
+	public String toString() {
+		return "StudentCourse [student=" + student + ", course=" + course + "]";
 	}
 }

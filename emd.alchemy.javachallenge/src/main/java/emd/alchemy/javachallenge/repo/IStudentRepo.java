@@ -6,5 +6,8 @@ import emd.alchemy.javachallenge.model.Student;
 
 
 public interface IStudentRepo extends JpaRepository<Student, Integer> {
+	
+	Student findByDni(String dni);
+	
 
 }
