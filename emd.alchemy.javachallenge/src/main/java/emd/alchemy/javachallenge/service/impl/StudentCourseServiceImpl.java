@@ -40,4 +40,11 @@ public class StudentCourseServiceImpl implements IStudentCourseService{
 		return repo.findOnebyCourseId(courseId);
 	}
 
+	@Override
+	public StudentCourse findByCourseIdAndStudentId(Integer courseId, Integer studentId) {
+		
+		return repo.findByCourseIdAndStudentId(courseId, studentId);
+	}
+
+
 }

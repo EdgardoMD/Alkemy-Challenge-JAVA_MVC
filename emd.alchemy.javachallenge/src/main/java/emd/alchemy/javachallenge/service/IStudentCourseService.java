@@ -14,6 +14,10 @@ public interface IStudentCourseService {
 	
 	StudentCourse findOnebyCourseId(@Param("courseId") Integer courseId);
 	
+	StudentCourse findByCourseIdAndStudentId(@Param("courseId") Integer courseId, @Param("studentId") Integer studentId);
+	
 	StudentCourse save(StudentCourse studentCourse);
+	
+	
 
 }

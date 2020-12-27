@@ -24,6 +24,9 @@ public interface IStudentCourseRepo extends JpaRepository<StudentCourse, Integer
 	
 	@Query("select sc from StudentCourse sc where sc.course.courseId = :courseId")
 	StudentCourse findOnebyCourseId(@Param("courseId") Integer courseId);
+	
+	@Query("select sc from StudentCourse sc where sc.course.courseId = :courseId and sc.student.studentId = :studentId")
+	StudentCourse findByCourseIdAndStudentId(@Param("courseId") Integer courseId, @Param("studentId") Integer studentId);
 
 
 }

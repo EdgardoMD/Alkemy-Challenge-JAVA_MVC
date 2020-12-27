@@ -11,7 +11,7 @@
 <body>
 	<div layout:fragment="content">
 		<p>
-			Welcome <span sec:authentication="principal.username">User</span>
+			Welcome <span sec:authentication="principal.username"></span>
 		</p>
 		<p>
 			<a th:href="@{/logout}">Logout</a>

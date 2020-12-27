@@ -58,8 +58,10 @@ public class CourseServiceImpl implements ICourseService{
 		
 		Course course = new Course();
 		course = repo.getOne(courseId);
-		Integer maxQuantity = course.getMaxQuantity();
-		course.setMaxQuantity(maxQuantity-1);
+		//Integer maxQuantity = course.getMaxQuantity();
+		Integer vacancy = course.getVacancy();
+		course.setVacancy(vacancy- 1);
+		//course.setMaxQuantity(maxQuantity-1);
 		return repo.save(course);
 		
 	}

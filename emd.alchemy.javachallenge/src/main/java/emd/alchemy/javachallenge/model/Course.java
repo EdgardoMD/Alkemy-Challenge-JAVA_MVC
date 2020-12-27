@@ -2,7 +2,6 @@ package emd.alchemy.javachallenge.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -28,6 +27,9 @@ public class Course {
 	
 	@Column(name = "description", nullable = true)
 	private String description;
+	
+	@Column(name= "Vacancy", nullable = true)
+	private Integer vacancy;
 	
 	public Course() {
 	}
@@ -75,13 +77,19 @@ public class Course {
 	public void setProfessor(Professor professor) {
 		this.professor = professor;
 	}
-	
-	
+
+	public Integer getVacancy() {
+		return vacancy;
+	}
+
+	public void setVacancy(Integer vacancy) {
+		this.vacancy = vacancy;
+	}
 
 	@Override
 	public String toString() {
 		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", professor=" + professor
-				+ ", maxQuantity=" + maxQuantity + ", description=" + description + "]";
+				+ ", maxQuantity=" + maxQuantity + ", description=" + description + ", vacancy=" + vacancy + "]";
 	}
 
 	@Override

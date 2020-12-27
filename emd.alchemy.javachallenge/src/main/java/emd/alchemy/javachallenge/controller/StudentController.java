@@ -30,8 +30,6 @@ public class StudentController {
 	private IStudentCourseService stcoService;
 	@Autowired
 	private IScheduleService scheduleService;
-	@Autowired
-	private IUserRepo userRepository;
 	
 	@GetMapping("/student/courses")
 	public String coursesList(Model model) {
@@ -71,14 +69,24 @@ public class StudentController {
 		Integer param1 = courseId;
 		String param2 = userName;
 		
+		//Integer vacancies = courseService.findById(courseId).getMaxQuantity();//
+		
+		
 		Course course = courseService.findById(param1);
 		Student student = studentService.findByDni(param2);
 		Integer studentId = student.getStudentId();
-		StudentCourse exist = stcoService.findOnebyCourseId(param1);
-		if(exist !=null ) {
+		StudentCourse exist = stcoService.findByCourseIdAndStudentId(param1, studentId);
+		if(exist !=null ) { 
+			System.out.println("ocurrio una exception");
 		return "joinupException";
 		}else{
+			
+			Integer vacancies = courseService.findById(courseId).getVacancy();//probando, OK
+			System.out.println(vacancies);
+			courseService.findById(courseId).setVacancy(vacancies - 1);//probando, OK
+			//System.out.println(vacancies);//
 			stcoService.register(studentId, courseId);
+			
 			return "redirect:/student/courses";
 		}
 	}

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import emd.alchemy.javachallenge.model.Message;
 import emd.alchemy.javachallenge.repo.IMessageRepo;
+import emd.alchemy.javachallenge.repo.IUserRepo;
+
 
 
 @Controller
@@ -15,6 +17,7 @@ public class HomeController {
 	
 	@Autowired
 	private IMessageRepo messageRepo;
+	//@Autowired private IUserRepo userRepo;
 	
 	@GetMapping("/")
 	public String login(Model model) {
@@ -24,6 +27,7 @@ public class HomeController {
 	@GetMapping("/home")
 	public String home(Model model) {
 		model.addAttribute("msgs", messageRepo.findAll());
+		//model.addAttribute("users", userRepo.findAll());
 		return "userhome";
 	}
 	
